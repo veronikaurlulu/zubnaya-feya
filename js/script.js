@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split('T')[0];
     if (bookingDateInput) bookingDateInput.setAttribute('min', today);
 
-    function generateTimeSlots() {
+        function generateTimeSlots() {
         if(!timeSlotsContainer) return;
         timeSlotsContainer.innerHTML = '';
         selectedTimeInput.value = '';
@@ -50,16 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         while (hour < 20) {
             const timeString = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+            
             const btn = document.createElement('button');
-            btn.type = 'button';
+            btn.type = 'button'; // ВАЖНО: чтобы кнопка не отправляла форму
             btn.className = 'time-slot-btn';
             btn.innerText = timeString;
             
             btn.addEventListener('click', () => {
-                // Убираем выделение у всех
-                document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
-                // Выделяем текущую
+                // Убираем класс 'selected' у всех кнопок
+                const allBtns = document.querySelectorAll('.time-slot-btn');
+                allBtns.forEach(b => b.classList.remove('selected'));
+                
+                // Добавляем класс 'selected' текущей кнопке
                 btn.classList.add('selected');
+                
+                // Записываем время в скрытое поле
                 selectedTimeInput.value = timeString;
             });
             
