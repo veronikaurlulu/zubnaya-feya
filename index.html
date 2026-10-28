@@ -282,7 +282,7 @@
     </footer>
 
     <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ С КАЛЕНДАРЕМ -->
-    <div class="modal" id="modal">
+        <div class="modal" id="modal">
         <div class="modal__content">
             <span class="modal__close" id="closeModal">&times;</span>
             <h2 class="modal__title" id="modalTitle">Запись на прием</h2>
@@ -291,17 +291,14 @@
                 <input type="text" id="patientName" placeholder="Ваше имя" required class="form__input">
                 <input type="tel" id="patientPhone" placeholder="Ваш телефон" required class="form__input">
                 
-                <!-- Выбор даты -->
-                <label for="bookingDate" style="font-size: 0.9rem; font-weight: 500;">Выберите дату:</label>
+                <label for="bookingDate" style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите дату:</label>
                 <input type="date" id="bookingDate" required class="form__input">
                 
-                <!-- Выбор времени -->
                 <label style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите время:</label>
-                <div class="time-slots" id="timeSlots">
-                    <!-- Сюда JS вставит кнопки со временем -->
-                </div>
+                <!-- Контейнер для кнопок -->
+                <div class="time-slots" id="timeSlots"></div>
                 
-                <!-- Скрытое поле для передачи выбранного времени -->
+                <!-- Скрытое поле для записи выбранного времени -->
                 <input type="hidden" id="selectedTime" required>
 
                 <button type="submit" class="btn btn--primary" style="margin-top: 20px;">Отправить заявку</button>
