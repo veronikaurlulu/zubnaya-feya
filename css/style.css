@@ -9,12 +9,12 @@
 }
 
 :root {
-    --primary: #00bfa5; /* Бирюзовый (основной цвет бренда) */
+    --primary: #00bfa5; /* Бирюзовый */
     --primary-dark: #008e76;
-    --accent: #ffc107; /* Желтый (акцентный цвет) */
-    --text: #2c3e50; /* Темно-серый для текста */
-    --text-light: #666; /* Светло-серый для второстепенного текста */
-    --bg-light: #f4f9f9; /* Светло-бирюзовый фон */
+    --accent: #ffc107; /* Желтый */
+    --text: #2c3e50;
+    --text-light: #666;
+    --bg-light: #f4f9f9;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 }
 
 /* =========================================
-   ТИПОГРАФИКА (ЗАГОЛОВКИ)
+   ТИПОГРАФИКА И КНОПКИ
    ========================================= */
 .section-title {
     text-align: center;
@@ -53,9 +53,6 @@ body {
     color: var(--primary);
 }
 
-/* =========================================
-   КНОПКИ
-   ========================================= */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -86,7 +83,7 @@ body {
 }
 
 /* =========================================
-   ШАПКА САЙТА (HEADER)
+   ШАПКА САЙТА
    ========================================= */
 .header {
     background-color: #fff;
@@ -103,14 +100,23 @@ body {
     height: 80px;
 }
 
+/* Логотип (картинка) */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    text-decoration: none;
+}
+.logo__img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+.logo__text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap;
 }
 
 .nav__list {
@@ -147,7 +153,6 @@ body {
     color: var(--primary);
 }
 
-/* Кнопка бургер (скрыта на компьютерах) */
 .burger {
     display: none;
     background: none;
@@ -166,7 +171,7 @@ body {
 }
 
 /* =========================================
-   ГЛАВНЫЙ БАННЕР (HERO)
+   БАННЕР (HERO)
    ========================================= */
 .hero {
     background: linear-gradient(135deg, var(--bg-light) 0%, #e0f2f1 100%);
@@ -207,7 +212,7 @@ body {
 }
 
 /* =========================================
-   БЛОК ПРЕИМУЩЕСТВ
+   ПРЕИМУЩЕСТВА
    ========================================= */
 .features {
     padding: 80px 0;
@@ -244,7 +249,7 @@ body {
 }
 
 /* =========================================
-   БЛОК УСЛУГ
+   УСЛУГИ (С КАРТИНКАМИ)
    ========================================= */
 .services {
     padding: 80px 0;
@@ -264,6 +269,15 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+/* Иконки в услугах */
+.service-icon-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 20px;
 }
 
 .service-card h3 {
@@ -284,52 +298,59 @@ body {
     background: var(--accent);
     padding: 5px 15px;
     border-radius: 20px;
-    align-self: flex-start;
 }
 
 /* =========================================
-   БЛОК ВРАЧЕЙ
+   ВРАЧИ (ЖЕСТКАЯ ФИКСАЦИЯ РАЗМЕРОВ)
    ========================================= */
-/* Карточка врача (Flexbox для выравнивания кнопок) */
+.doctors {
+    padding: 80px 0;
+}
+
+.doctors__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
 .doctor-card {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрируем всё содержимое по горизонтали */
-    height: 100%; /* Карточки будут одной высоты */
+    align-items: center; /* Центрируем контент */
+    height: 100%; /* Карточки одной высоты */
     text-align: center;
     background: #fff;
-    padding: 20px;
+    padding: 30px 20px; /* Чуть больше отступов для красоты */
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-/* Картинка врача (жестко задаем размеры) */
+/* Картинка врача (строго 150х150) */
 .doctor-card img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Картинка не будет искажаться */
+    object-fit: cover;
     border-radius: 50%;
     margin-bottom: 20px;
     border: 4px solid var(--primary);
-    flex-shrink: 0; /* Запрещаем картинке сжиматься или растягиваться */
+    flex-shrink: 0; /* Запрет на сжатие/растягивание */
 }
 
 .doctor-card h3 {
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-/* Описание врача (растягиваем, чтобы вытолкнуть кнопку вниз) */
 .doctor-card p {
-    flex-grow: 1; /* Занимает всё свободное место */
+    flex-grow: 1; /* Растягивает описание, выталкивая кнопку вниз */
     color: var(--text-light);
     font-size: 0.9rem;
-    margin-bottom: 15px; /* Отступ до ссылки на диплом */
+    margin-bottom: 15px;
 }
 
-/* Ссылка на диплом */
 .doc-link {
     display: inline-block;
-    margin-bottom: 15px; /* Отступ до кнопки "Записаться" */
+    margin-bottom: 15px;
     font-size: 0.85rem;
     color: var(--primary);
     text-decoration: none;
@@ -343,184 +364,15 @@ body {
     border-bottom-style: solid;
 }
 
-/* Кнопка записи (прижата к низу) */
 .btn-book {
-    margin-top: auto; /* Магия, которая прижимает кнопку к самому низу */
+    margin-top: auto; /* Прижимает кнопку к полу карточки */
     width: 100%;
     padding: 10px;
     font-size: 0.9rem;
 }
 
 /* =========================================
-   ПОДВАЛ САЙТА (FOOTER)
-   ========================================= */
-.footer {
-    background-color: #1a252f;
-    color: #fff;
-    padding: 60px 0 20px;
-}
-
-.footer__container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.footer__info h2 {
-    color: var(--primary);
-    margin-bottom: 20px;
-}
-
-.footer__info p {
-    margin-bottom: 10px;
-    color: #bdc3c7;
-}
-
-.footer__info a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.footer__bottom {
-    border-top: 1px solid #34495e;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
-/* =========================================
-   МОДАЛЬНОЕ ОКНО (ЗАПИСЬ)
-   ========================================= */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(5px);
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal__content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 450px;
-    width: 90%;
-    position: relative;
-    animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.modal__close {
-    position: absolute;
-    top: 15px; right: 20px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #999;
-    transition: color 0.3s;
-}
-
-.modal__close:hover {
-    color: var(--primary);
-}
-
-.modal__title {
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-
-.modal__text {
-    margin-bottom: 25px;
-    color: var(--text-light);
-    font-size: 0.95rem;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form__input {
-    padding: 15px;
-    border: 2px solid #eee;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.3s;
-}
-
-.form__input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.form__policy {
-    font-size: 0.75rem;
-    color: #999;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* =========================================
-   АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ)
-   ========================================= */
-@media (max-width: 900px) {
-    .hero__title { font-size: 2.5rem; }
-    .hero__container { flex-direction: column; text-align: center; }
-    .hero__subtitle { margin: 0 auto 30px; }
-    
-    .nav {
-        display: none;
-        position: absolute;
-        top: 80px; left: 0; width: 100%;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    }
-    
-    .nav.active { display: block; }
-    .nav__list { flex-direction: column; align-items: center; gap: 15px; }
-    
-    .header__contacts { display: none; }
-    .burger { display: flex; }
-    
-    .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
-}
-/* =========================================
-   ДОПОЛНЕНИЯ ДЛЯ ПОЛНОЦЕННОГО САЙТА
-   ========================================= */
-
-/* Новый логотип */
-.logo {
-    font-size: 1.8rem; /* Увеличили размер */
-    gap: 10px;
-}
-.logo__icon {
-    font-size: 2.2rem;
-}
-
-/* Иконки в карточках услуг */
-.service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    display: block;
-}
-
-/* =========================================
-   БЛОК СТАТЕЙ (БЛОГ)
+   СТАТЬИ (БЛОГ)
    ========================================= */
 .blog {
     padding: 80px 0;
@@ -565,12 +417,9 @@ body {
     font-weight: 700;
     font-size: 0.9rem;
 }
-.read-more:hover {
-    color: var(--primary-dark);
-}
 
 /* =========================================
-   БЛОК FAQ (АККОРДЕОН)
+   FAQ (АККОРДЕОН)
    ========================================= */
 .faq {
     padding: 80px 0;
@@ -590,14 +439,12 @@ body {
     padding: 20px;
     font-weight: 700;
     cursor: pointer;
-    list-style: none; /* Убираем стандартный треугольник */
+    list-style: none;
     position: relative;
     color: var(--text);
     transition: color 0.3s;
 }
-.faq-item summary::-webkit-details-marker {
-    display: none; /* Убираем маркер в Safari/Chrome */
-}
+.faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
     content: '+';
     position: absolute;
@@ -620,100 +467,157 @@ body {
     font-size: 0.95rem;
 }
 
-/* Обновление подвала под две ссылки */
-.footer__links {
-    display: flex;
-    gap: 20px;
+/* =========================================
+   ПОДВАЛ (FOOTER)
+   ========================================= */
+.footer {
+    background-color: #1a252f;
+    color: #fff;
+    padding: 60px 0 20px;
 }
-.footer__links a {
-    color: #7f8c8d;
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.footer__info h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+.footer__info p {
+    margin-bottom: 10px;
+    color: #bdc3c7;
+}
+.footer__info a {
+    color: var(--accent);
     text-decoration: none;
+}
+.footer__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.footer__socials a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer__socials a:hover { color: var(--primary); }
+
+.footer__bottom {
+    border-top: 1px solid #34495e;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
     font-size: 0.9rem;
 }
-.footer__links a:hover {
-    color: var(--primary);
-}
-/* Новые иконки и лого */
-.logo__svg { width: 32px; height: 32px; color: var(--primary); }
-.service-icon svg { width: 40px; height: 40px; color: var(--primary); margin-bottom: 15px; }
+.footer__links { display: flex; gap: 20px; }
+.footer__links a { color: #7f8c8d; text-decoration: none; }
+.footer__links a:hover { color: var(--primary); }
 
-/* Соцсети в подвале */
-.footer__socials { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-.footer__socials a { color: var(--text-light); text-decoration: none; transition: color 0.3s; }
-.footer__socials a:hover { color: var(--accent); }
-
-/* Выбор времени записи */
-.time-slots { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-.time-slot-btn {
-    padding: 8px 15px; border: 1px solid var(--primary); background: #fff;
-    border-radius: 20px; cursor: pointer; font-family: inherit; transition: 0.3s;
-}
-.time-slot-btn:hover { background: var(--bg-light); }
-.time-slot-btn.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-/* Кнопка записи в карточке врача */
-.btn-book { margin-top: 15px; width: 100%; padding: 10px; font-size: 0.9rem; }
-/* Стили для логотипа-картинки */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-.logo__img {
-    width: 45px; /* Размер логотипа */
-    height: 45px;
-    object-fit: contain; /* Картинка не будет искажаться */
-}
-.logo__text {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--primary);
-    white-space: nowrap; /* Текст не будет переноситься на новую строку */
-}
-
-/* Стили для иконок в услугах */
-.service-icon-img {
-    width: 64px; /* Аккуратный размер иконки */
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 20px;
-    display: block;
-}
 /* =========================================
-   СТИЛИ ДЛЯ ВЫБОРА ВРЕМЕНИ ЗАПИСИ
+   МОДАЛЬНОЕ ОКНО И ВЫБОР ВРЕМЕНИ
    ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+.modal.active { display: flex; }
+.modal__content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto; /* Если контента много, будет скролл */
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.modal__close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #999;
+}
+.modal__title { margin-bottom: 10px; color: var(--primary); }
+.modal__text { margin-bottom: 25px; color: var(--text-light); font-size: 0.95rem; }
+.form { display: flex; flex-direction: column; gap: 15px; }
+.form__input {
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.form__input:focus { outline: none; border-color: var(--primary); }
+
+/* Сетка времени */
 .time-slots {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Расстояние между кнопками */
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 10px;
     margin-top: 5px;
 }
-
 .time-slot-btn {
-    padding: 10px 16px;
+    padding: 10px 15px;
     border: 2px solid #e0e0e0;
     background-color: #fff;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-family: inherit;
     font-weight: 500;
     color: var(--text);
     transition: all 0.2s ease;
 }
-
 .time-slot-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
     background-color: var(--bg-light);
 }
-
-/* Класс, который добавляется при клике (выбранное время) */
 .time-slot-btn.selected {
-    background-color: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
+    background-color: var(--primary) !important;
+    color: #fff !important;
+    border-color: var(--primary) !important;
     box-shadow: 0 4px 10px rgba(0, 191, 165, 0.3);
+}
+.form__policy { font-size: 0.75rem; color: #999; text-align: center; margin-top: 10px; }
+
+/* =========================================
+   АДАПТИВНОСТЬ (МОБИЛЬНЫЕ)
+   ========================================= */
+@media (max-width: 900px) {
+    .hero__title { font-size: 2.5rem; }
+    .hero__container { flex-direction: column; text-align: center; }
+    .hero__subtitle { margin: 0 auto 30px; }
+    
+    .nav {
+        display: none;
+        position: absolute;
+        top: 80px; left: 0; width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+    .nav.active { display: block; }
+    .nav__list { flex-direction: column; align-items: center; gap: 15px; }
+    .header__contacts { display: none; }
+    .burger { display: flex; }
+    
+    .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
