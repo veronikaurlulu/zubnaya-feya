@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист | Стоматология «Зубная Фея»</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ШАПКА САЙТА (Скопирована из index.html) -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Логотип Зубная Фея" class="logo__img">
+                <span class="logo__text">Зубная Фея</span>
+            </a>
+            <nav class="nav" id="navMenu">
+                <ul class="nav__list">
+                    <li><a href="index.html#services" class="nav__link">Услуги</a></li>
+                    <li><a href="price.html" class="nav__link" style="color: #00bfa5;">Прайс-лист</a></li>
+                    <li><a href="index.html#doctors" class="nav__link">Врачи</a></li>
+                    <li><a href="index.html#blog" class="nav__link">Статьи</a></li>
+                    <li><a href="index.html#faq" class="nav__link">Вопросы</a></li>
+                    <li><a href="index.html#contacts" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header__contacts">
+                <a href="tel:+78120000000" class="phone">+7 (812) 000-00-00</a>
+                <button class="btn btn--primary open-modal">Записаться</button>
+            </div>
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- БЛОК ПРАЙС-ЛИСТА -->
+    <section class="services" style="padding-top: 40px;">
+        <div class="container">
+            <h2 class="section-title">Прайс-лист на услуги</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">Цены указаны в рублях. Первичная консультация — бесплатно. Точная стоимость определяется после осмотра врача.</p>
+            
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Код</th>
+                        <th>Наименование услуги</th>
+                        <th>Цена (₽)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Раздел 1: Диагностика -->
+                    <tr class="category-row"><td colspan="3">1. Консультации и диагностика</td></tr>
+                    <tr><td>101</td><td>Первичная консультация врача-стоматолога</td><td>0</td></tr>
+                    <tr><td>102</td><td>Компьютерная томография (3D КТ) одной челюсти</td><td>1 500</td></tr>
+                    <tr><td>103</td><td>Прицельный рентгеновский снимок</td><td>500</td></tr>
+                    <tr><td>104</td><td>Панорамный снимок (ОПТГ)</td><td>1 200</td></tr>
+                    
+                    <!-- Раздел 2: Терапия -->
+                    <tr class="category-row"><td colspan="3">2. Терапевтическая стоматология</td></tr>
+                    <tr><td>201</td><td>Лечение кариеса (1 поверхность)</td><td>3 500</td></tr>
+                    <tr><td>202</td><td>Лечение кариеса (пломба из светокомпозита)</td><td>4 800</td></tr>
+                    <tr><td>203</td><td>Лечение пульпита (1 канал)</td><td>6 000</td></tr>
+                    <tr><td>204</td><td>Профессиональная гигиена полости рта + полировка</td><td>4 500</td></tr>
+                    <tr><td>205</td><td>Отбеливание зубов (офисное, система ZOOM)</td><td>18 000</td></tr>
+
+                    <!-- Раздел 3: Детская стоматология -->
+                    <tr class="category-row"><td colspan="3">3. Детская стоматология</td></tr>
+                    <tr><td>301</td><td>Лечение молочного зуба (пломба)</td><td>2 500</td></tr>
+                    <tr><td>302</td><td>Серебрение молочных зубов (1 зуб)</td><td>500</td></tr>
+                    <tr><td>303</td><td>Герметизация фиссур (1 зуб)</td><td>1 800</td></tr>
+                    <tr><td>304</td><td>Лечение зубов под седацией (во сне)</td><td>от 12 000</td></tr>
+
+                    <!-- Раздел 4: Хирургия и имплантация -->
+                    <tr class="category-row"><td colspan="3">4. Хирургия и имплантация</td></tr>
+                    <tr><td>401</td><td>Удаление зуба (простое)</td><td>2 500</td></tr>
+                    <tr><td>402</td><td>Удаление зуба мудрости (сложное)</td><td>6 500</td></tr>
+                    <tr><td>403</td><td>Установка импланта (без учета стоимости импланта)</td><td>35 000</td></tr>
+                    <tr><td>404</td><td>Синус-лифтинг (закрытый)</td><td>15 000</td></tr>
+
+                    <!-- Раздел 5: Ортодонтия и протезирование -->
+                    <tr class="category-row"><td colspan="3">5. Ортодонтия и ортопедия</td></tr>
+                    <tr><td>501</td><td>Установка брекет-системы (1 челюсть)</td><td>75 000</td></tr>
+                    <tr><td>502</td><td>Коррекция брекет-системы (ежемесячно)</td><td>3 500</td></tr>
+                    <tr><td>503</td><td>Изготовление элайнеров (полный курс)</td><td>150 000</td></tr>
+                    <tr><td>504</td><td>Металлокерамическая коронка</td><td>12 000</td></tr>
+                    <tr><td>505</td><td>Коронка из диоксида циркония</td><td>25 000</td></tr>
+                    <tr><td>506</td><td>Керамический винир</td><td>22 000</td></tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn--primary btn--large open-modal">Записаться на прием</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ (Скопирован из index.html) -->
+    <footer class="footer" id="contacts">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <h2>Зубная Фея</h2>
+                <p>г. Санкт-Петербург, ул. Пушкина, д. 10</p>
+                <p>Режим работы: Пн-Вс с 09:00 до 21:00</p>
+                <p>Телефон: <a href="tel:+78120000000">+7 (812) 000-00-00</a></p>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Стоматология «Зубная Фея». Все права защищены.</p>
+                <div class="footer__links">
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно (Скопировано из index.html) -->
+    <div class="modal" id="modal">
+        <div class="modal__content">
+            <span class="modal__close" id="closeModal">&times;</span>
+            <h2 class="modal__title" id="modalTitle">Запись на прием</h2>
+            <form class="form" id="appointmentForm">
+                <input type="text" id="patientName" placeholder="Ваше имя" required class="form__input">
+                <input type="tel" id="patientPhone" placeholder="Ваш телефон" required class="form__input">
+                <label for="bookingDate" style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите дату:</label>
+                <input type="date" id="bookingDate" required class="form__input">
+                <label style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите время:</label>
+                <div class="time-slots" id="timeSlots"></div>
+                <input type="hidden" id="selectedTime" required>
+                <button type="submit" class="btn btn--primary" style="margin-top: 20px;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
