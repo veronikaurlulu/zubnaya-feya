@@ -491,3 +491,137 @@ body {
     
     .footer__bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
+/* =========================================
+   ДОПОЛНЕНИЯ ДЛЯ ПОЛНОЦЕННОГО САЙТА
+   ========================================= */
+
+/* Новый логотип */
+.logo {
+    font-size: 1.8rem; /* Увеличили размер */
+    gap: 10px;
+}
+.logo__icon {
+    font-size: 2.2rem;
+}
+
+/* Иконки в карточках услуг */
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* =========================================
+   БЛОК СТАТЕЙ (БЛОГ)
+   ========================================= */
+.blog {
+    padding: 80px 0;
+    background-color: #fff;
+}
+.blog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.blog-card {
+    background: var(--bg-light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.blog-card__content {
+    padding: 25px;
+}
+.blog-card__content h3 {
+    color: var(--text);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+.blog-card__content p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.read-more {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.read-more:hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   БЛОК FAQ (АККОРДЕОН)
+   ========================================= */
+.faq {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+.faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.faq-item summary {
+    padding: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none; /* Убираем стандартный треугольник */
+    position: relative;
+    color: var(--text);
+    transition: color 0.3s;
+}
+.faq-item summary::-webkit-details-marker {
+    display: none; /* Убираем маркер в Safari/Chrome */
+}
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s;
+}
+.faq-item[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+.faq-item[open] summary {
+    color: var(--primary);
+    border-bottom: 1px solid #eee;
+}
+.faq-item p {
+    padding: 20px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Обновление подвала под две ссылки */
+.footer__links {
+    display: flex;
+    gap: 20px;
+}
+.footer__links a {
+    color: #7f8c8d;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.footer__links a:hover {
+    color: var(--primary);
+}
