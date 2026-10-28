@@ -1,64 +1,103 @@
-// Ждем, пока загрузится весь HTML-код страницы
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. ЛОГИКА РАБОТЫ МОДАЛЬНОГО ОКНА (ФОРМЫ ЗАПИСИ)
-    // ==========================================
-    const modal = document.getElementById('modal'); // Находим само окно
-    const openBtns = document.querySelectorAll('.open-modal'); // Находим все кнопки "Записаться"
-    const closeBtn = document.getElementById('closeModal'); // Находим крестик закрытия
+    // --- 1. МОДАЛЬНОЕ ОКНО ---
+    const modal = document.getElementById('modal');
+    const openBtns = document.querySelectorAll('.open-modal');
+    const closeBtn = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
 
-    // Открываем окно при клике на любую кнопку "Записаться"
+    // Открытие через шапку/баннер
     openBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+            modalTitle.innerText = 'Запись на прием';
             modal.classList.add('active');
+            generateTimeSlots(); // Генерируем время
         });
     });
 
-    // Закрываем окно при клике на крестик
-    closeBtn.addEventListener('click', () => {
+    // Открытие через карточку врача
+    const bookDoctorBtns = document.querySelectorAll('.btn-book');
+    bookDoctorBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const doctorName = btn.getAttribute('data-doctor');
+            modalTitle.innerText = `Запись к ${doctorName}`;
+            modal.classList.add('active');
+            generateTimeSlots();
+        });
+    });
+
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+    // --- 2. ГЕНЕРАЦИЯ ВРЕМЕНИ ---
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    const selectedTimeInput = document.getElementById('selectedTime');
+    const bookingDateInput = document.getElementById('bookingDate');
+
+    // Устанавливаем минимальную дату - сегодня
+    const today = new Date().toISOString().split('T')[0];
+    if (bookingDateInput) bookingDateInput.setAttribute('min', today);
+
+    function generateTimeSlots() {
+        if(!timeSlotsContainer) return;
+        timeSlotsContainer.innerHTML = '';
+        selectedTimeInput.value = '';
+        
+        // Генерируем время с 9:00 до 20:00 с шагом 30 минут
+        let hour = 9;
+        let minute = 0;
+
+        while (hour < 20) {
+            const timeString = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'time-slot-btn';
+            btn.innerText = timeString;
+            
+            btn.addEventListener('click', () => {
+                // Убираем выделение у всех
+                document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
+                // Выделяем текущую
+                btn.classList.add('selected');
+                selectedTimeInput.value = timeString;
+            });
+            
+            timeSlotsContainer.appendChild(btn);
+            
+            minute += 30;
+            if (minute === 60) { hour++; minute = 0; }
+        }
+    }
+
+    // --- 3. ОТПРАВКА ФОРМЫ ---
+    const form = document.getElementById('appointmentForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (!selectedTimeInput.value) {
+            alert('Пожалуйста, выберите время приема.');
+            return;
+        }
+
+        const date = bookingDateInput.value;
+        const time = selectedTimeInput.value;
+        const doctor = modalTitle.innerText;
+
+        alert(`Спасибо! Вы записаны: ${doctor}.\nДата: ${date}\nВремя: ${time}.\nАдминистратор перезвонит для подтверждения.`);
+        
+        form.reset();
+        document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
         modal.classList.remove('active');
     });
 
-    // Закрываем окно, если кликнуть мимо самого окна (на темный фон)
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-
-    // ==========================================
-    // 2. ОБРАБОТКА ОТПРАВКИ ФОРМЫ
-    // ==========================================
-    const form = document.getElementById('appointmentForm');
-    
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Запрещаем странице перезагружаться при отправке
-        
-        // В реальном проекте здесь был бы код отправки данных на сервер (AJAX)
-        // А пока просто показываем сообщение об успехе
-        alert('Спасибо! Ваша заявка отправлена. Администратор перезвонит вам в течение 15 минут.');
-        
-        form.reset(); // Очищаем поля формы
-        modal.classList.remove('active'); // Закрываем окно
-    });
-
-    // ==========================================
-    // 3. ЛОГИКА МОБИЛЬНОГО МЕНЮ (БУРГЕР)
-    // ==========================================
+    // --- 4. МОБИЛЬНОЕ МЕНЮ ---
     const burger = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
-
-    // Открываем/закрываем меню при клике на бургер
-    burger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // Закрываем меню, если пользователь кликнул на какую-то ссылку в нем
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
+    if(burger) {
+        burger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    }
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => navMenu.classList.remove('active'));
     });
 });
