@@ -290,48 +290,60 @@ body {
     gap: 30px;
 }
 
+/* Меняем фон карточки на светло-бирюзовый и центрируем текст */
 .service-card {
-    background: #fff;
-    padding: 30px;
+    background-color: #e0f7fa; /* Светло-бирюзовый фон (иконки будут лучше видны) */
+    text-align: center;        /* Выравниваем ВСЁ содержимое по центру */
+    padding: 30px 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Выравнивание по левому краю */
+    align-items: center;       /* Центрируем элементы внутри */
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* Иконки в услугах */
 /* Стили для иконок в карточках услуг */
+/* Увеличиваем иконки */
 .service-icon-img {
-    display: block;           /* Делает картинку блочным элементом */
-    margin: 0 auto 20px;      /* Выравнивает по центру (auto) и добавляет отступ снизу 20px */
-    width: 80px;              /* Ширина иконки (можешь попробовать 70px или 90px) */
-    height: 80px;             /* Высота иконки */
-    object-fit: contain;      /* Чтобы картинка не искажалась и вписывалась в заданные размеры */
+    width: 120px;             /* Увеличили размер (было 80px) */
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;      /* Отступ от иконки до заголовка */
 }
 
-.service-card {
-    text-align: center; /* Выравнивает весь текст внутри карточки по центру */
-}
-
+/* Выравниваем заголовки (названия услуг) */
 .service-card h3 {
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-.service-card p {
-    flex-grow: 1;
-    margin-bottom: 20px;
-    color: var(--text-light);
-}
-
-.price {
     font-size: 1.3rem;
+    color: #00897b;           /* Сделал цвет темнее для контраста с фоном */
+    margin-bottom: 15px;
+    min-height: 3.5rem;       /* Фиксируем высоту заголовка, чтобы кнопки "от 3 500" стояли на одном уровне */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Описание услуги */
+.service-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;             /* Растягиваем текст, чтобы цены были прижаты к низу */
+}
+
+/* Кнопка с ценой */
+.price {
+    background-color: #ffc107; /* Оставляем желтой */
+    color: #333;
+    padding: 10px 25px;
+    border-radius: 30px;
     font-weight: 700;
-    color: var(--text);
-    background: var(--accent);
-    padding: 5px 15px;
-    border-radius: 20px;
+    display: inline-block;
 }
 
 /* =========================================
