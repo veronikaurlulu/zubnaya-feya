@@ -273,11 +273,17 @@ body {
 }
 
 /* Иконки в услугах */
+/* Стили для иконок в карточках услуг */
 .service-icon-img {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 20px;
+    display: block;           /* Делает картинку блочным элементом */
+    margin: 0 auto 20px;      /* Выравнивает по центру (auto) и добавляет отступ снизу 20px */
+    width: 80px;              /* Ширина иконки (можешь попробовать 70px или 90px) */
+    height: 80px;             /* Высота иконки */
+    object-fit: contain;      /* Чтобы картинка не искажалась и вписывалась в заданные размеры */
+}
+
+.service-card {
+    text-align: center; /* Выравнивает весь текст внутри карточки по центру */
 }
 
 .service-card h3 {
