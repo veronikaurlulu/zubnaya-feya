@@ -7,12 +7,9 @@
     <meta name="keywords" content="стоматология, стоматолог спб, лечение зубов, детский стоматолог, имплантация, зубная фея">
     <title>Стоматология «Зубная Фея» | Лечение без страха</title>
     
-    <!-- Подключение шрифтов Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Подключение стилей -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,14 +17,18 @@
     <!-- ШАПКА САЙТА -->
     <header class="header">
         <div class="container header__container">
+            <!-- Новый логотип с феей -->
             <a href="#" class="logo">
-                <span class="logo__icon">🦷</span> Зубная Фея
+                <span class="logo__icon">🧚‍♀️</span> 
+                <span class="logo__text">Зубная Фея</span>
             </a>
             
             <nav class="nav" id="navMenu">
                 <ul class="nav__list">
                     <li><a href="#services" class="nav__link">Услуги</a></li>
                     <li><a href="#doctors" class="nav__link">Врачи</a></li>
+                    <li><a href="#blog" class="nav__link">Статьи</a></li>
+                    <li><a href="#faq" class="nav__link">Вопросы</a></li>
                     <li><a href="#contacts" class="nav__link">Контакты</a></li>
                 </ul>
             </nav>
@@ -37,7 +38,6 @@
                 <button class="btn btn--primary open-modal">Записаться</button>
             </div>
             
-            <!-- Кнопка мобильного меню (бургер) -->
             <button class="burger" id="burger">
                 <span></span><span></span><span></span>
             </button>
@@ -54,7 +54,6 @@
                 <p class="hero__notice">* Первичная консультация — бесплатно</p>
             </div>
             <div class="hero__image">
-                <!-- Локальная картинка для баннера -->
                 <img src="img/hero-bg.jpg" alt="Улыбка пациента">
             </div>
         </div>
@@ -81,42 +80,49 @@
         </div>
     </section>
 
-    <!-- БЛОК УСЛУГ -->
+    <!-- БЛОК УСЛУГ (С ИКОНКАМИ) -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
             <div class="services__grid">
                 <div class="service-card">
+                    <div class="service-icon">🦷</div>
                     <h3>Терапия</h3>
                     <p>Лечение кариеса, пульпита, реставрация зубов.</p>
                     <span class="price">от 3 500 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">🧸</div>
                     <h3>Детская стоматология</h3>
                     <p>Лечение молочных зубов, серебрение, герметизация.</p>
                     <span class="price">от 2 000 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">🩺</div>
                     <h3>Хирургия</h3>
                     <p>Удаление зубов любой сложности, включая зубы мудрости.</p>
                     <span class="price">от 2 500 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">🔩</div>
                     <h3>Имплантация</h3>
                     <p>Установка имплантов премиум-класса с гарантией.</p>
                     <span class="price">от 35 000 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">😁</div>
                     <h3>Ортодонтия</h3>
                     <p>Исправление прикуса брекетами и элайнерами.</p>
                     <span class="price">от 150 000 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">🩻</div>
                     <h3>Компьютерная томография</h3>
                     <p>3D-диагностика зубов и челюстей на томографе.</p>
                     <span class="price">от 1 500 ₽</span>
                 </div>
                 <div class="service-card">
+                    <div class="service-icon">📸</div>
                     <h3>Рентгенография</h3>
                     <p>Прицельные снимки и панорамная рентгенография.</p>
                     <span class="price">от 500 ₽</span>
@@ -125,42 +131,121 @@
         </div>
     </section>
 
-    <!-- БЛОК ВРАЧЕЙ -->
+    <!-- БЛОК ВРАЧЕЙ (ВСЕ 7 ЧЕЛОВЕК) -->
     <section class="doctors" id="doctors">
         <div class="container">
             <h2 class="section-title">Наши врачи</h2>
             <div class="doctors__grid">
-                
+                <!-- 3 Терапевта -->
                 <div class="doctor-card">
-                    <!-- Локальная картинка врача 1 -->
-                    <img src="img/doctor-1.jpg" alt="Врач Анна Смирнова">
+                    <img src="img/doctor-1.jpg" alt="Анна Смирнова">
                     <h3>Анна Смирнова</h3>
                     <p>Главный врач. Стоматолог-терапевт. Стаж 15 лет.</p>
-                    <!-- Ссылка на диплом (пока ведет на заглушку #) -->
                     <a href="docs/diplom-smirnova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
                 </div>
-
                 <div class="doctor-card">
-                    <!-- Локальная картинка врача 2 -->
-                    <img src="img/doctor-2.jpg" alt="Врач Иван Петров">
-                    <h3>Иван Петров</h3>
-                    <p>Хирург-имплантолог. Стаж 12 лет.</p>
-                    <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <img src="img/doctor-2.jpg" alt="Ольга Соколова">
+                    <h3>Ольга Соколова</h3>
+                    <p>Стоматолог-терапевт. Стаж 10 лет.</p>
+                    <a href="docs/diplom-sokolova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
                 </div>
-
                 <div class="doctor-card">
-                    <!-- Локальная картинка врача 3 -->
-                    <img src="img/doctor-3.jpg" alt="Врач Елена Козлова">
+                    <img src="img/doctor-3.jpg" alt="Дмитрий Орлов">
+                    <h3>Дмитрий Орлов</h3>
+                    <p>Стоматолог-терапевт. Стаж 7 лет.</p>
+                    <a href="docs/diplom-orlov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+                
+                <!-- Детский стоматолог -->
+                <div class="doctor-card">
+                    <img src="img/doctor-4.jpg" alt="Елена Козлова">
                     <h3>Елена Козлова</h3>
                     <p>Детский стоматолог. Стаж 8 лет.</p>
                     <a href="docs/diplom-kozlova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
                 </div>
 
+                <!-- Хирург-имплантолог -->
+                <div class="doctor-card">
+                    <img src="img/doctor-5.jpg" alt="Иван Петров">
+                    <h3>Иван Петров</h3>
+                    <p>Хирург-имплантолог. Стаж 12 лет.</p>
+                    <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+
+                <!-- Ортодонт -->
+                <div class="doctor-card">
+                    <img src="img/doctor-6.jpg" alt="Мария Лебедева">
+                    <h3>Мария Лебедева</h3>
+                    <p>Врач-ортодонт. Стаж 9 лет.</p>
+                    <a href="docs/diplom-lebedeva.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+                
+                <!-- Заведующий (дополнительно) -->
+                <div class="doctor-card">
+                    <img src="img/doctor-7.jpg" alt="Сергей Николаев">
+                    <h3>Сергей Николаев</h3>
+                    <p>Стоматолог-ортопед. Стаж 14 лет.</p>
+                    <a href="docs/diplom-nikolaev.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
+    <!-- БЛОК СТАТЕЙ (БЛОГ) -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">Полезные статьи</h2>
+            <div class="blog__grid">
+                <article class="blog-card">
+                    <img src="img/blog-1.jpg" alt="Статья 1">
+                    <div class="blog-card__content">
+                        <h3>Как приучить ребенка чистить зубы?</h3>
+                        <p>Простые советы от нашего детского стоматолога, которые превратят чистку зубов в игру.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="img/blog-2.jpg" alt="Статья 2">
+                    <div class="blog-card__content">
+                        <h3>Больно ли ставить импланты?</h3>
+                        <p>Развенчиваем мифы о самой популярной процедуре восстановления зубов.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="img/blog-3.jpg" alt="Статья 3">
+                    <div class="blog-card__content">
+                        <h3>Отбеливание: вред или польза?</h3>
+                        <p>Вся правда о современных безопасных методах отбеливания эмали.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК FAQ (ВОПРОС-ОТВЕТ) -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq__list">
+                <details class="faq-item">
+                    <summary>Больно ли лечить зубы в вашей клинике?</summary>
+                    <p>Мы используем современные анестезирующие препараты, которые делают процесс лечения абсолютно безболезненным. Для самых тревожных пациентов доступна седация (лечение во сне).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Со скольки лет вы принимаете детей?</summary>
+                    <p>Наш детский стоматолог принимает малышей с момента прорезывания первого зуба. Мы делаем все, чтобы визит прошел в игровой форме и не оставил страха.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Можно ли записаться на прием в выходные?</summary>
+                    <p>Да, клиника работает без выходных: Пн-Вс с 09:00 до 21:00. Вы можете записаться онлайн через форму на сайте или по телефону.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ И ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ) -->
     <footer class="footer" id="contacts">
         <div class="container footer__container">
             <div class="footer__info">
@@ -171,7 +256,11 @@
             </div>
             <div class="footer__bottom">
                 <p>&copy; 2026 Стоматология «Зубная Фея». Все права защищены.</p>
-                <a href="#">Политика конфиденциальности</a>
+                <div class="footer__links">
+                    <!-- Ссылки на юридические документы -->
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="offer.html">Публичная оферта</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -191,7 +280,6 @@
         </div>
     </div>
 
-    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ -->
     <script src="js/script.js"></script>
 </body>
 </html>
