@@ -106,3 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => navMenu.classList.remove('active'));
     });
 });
+// === НАСТРОЙКА ЦЕЛЕЙ ЯНДЕКС.МЕТРИКИ ===
+
+// 1. Отслеживание кликов по номеру телефона
+document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+        if (typeof ym !== 'undefined') {
+            ym(113852204, 'reachGoal', 'phone_click');
+        }
+    });
+});
+
+// 2. Отслеживание отправки формы записи
+const appointmentForm = document.getElementById('appointmentForm');
+if (appointmentForm) {
+    appointmentForm.addEventListener('submit', () => {
+        if (typeof ym !== 'undefined') {
+            ym(113852204, 'reachGoal', 'form_submit');
+        }
+    });
+}
