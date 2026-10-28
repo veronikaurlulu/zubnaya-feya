@@ -290,15 +290,65 @@ body {
 /* =========================================
    БЛОК ВРАЧЕЙ
    ========================================= */
+/* Карточка врача (Flexbox для выравнивания кнопок) */
 .doctor-card {
     display: flex;
     flex-direction: column;
+    align-items: center; /* Центрируем всё содержимое по горизонтали */
     height: 100%; /* Карточки будут одной высоты */
     text-align: center;
     background: #fff;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Картинка врача (жестко задаем размеры) */
+.doctor-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Картинка не будет искажаться */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary);
+    flex-shrink: 0; /* Запрещаем картинке сжиматься или растягиваться */
+}
+
+.doctor-card h3 {
+    margin-bottom: 10px;
+}
+
+/* Описание врача (растягиваем, чтобы вытолкнуть кнопку вниз) */
+.doctor-card p {
+    flex-grow: 1; /* Занимает всё свободное место */
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 15px; /* Отступ до ссылки на диплом */
+}
+
+/* Ссылка на диплом */
+.doc-link {
+    display: inline-block;
+    margin-bottom: 15px; /* Отступ до кнопки "Записаться" */
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--primary);
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+}
+
+.doc-link:hover {
+    color: var(--primary-dark);
+    border-bottom-style: solid;
+}
+
+/* Кнопка записи (прижата к низу) */
+.btn-book {
+    margin-top: auto; /* Магия, которая прижимает кнопку к самому низу */
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
 }
 
 /* =========================================
