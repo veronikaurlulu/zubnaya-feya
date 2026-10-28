@@ -625,3 +625,23 @@ body {
 .footer__links a:hover {
     color: var(--primary);
 }
+/* Новые иконки и лого */
+.logo__svg { width: 32px; height: 32px; color: var(--primary); }
+.service-icon svg { width: 40px; height: 40px; color: var(--primary); margin-bottom: 15px; }
+
+/* Соцсети в подвале */
+.footer__socials { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.footer__socials a { color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+.footer__socials a:hover { color: var(--accent); }
+
+/* Выбор времени записи */
+.time-slots { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.time-slot-btn {
+    padding: 8px 15px; border: 1px solid var(--primary); background: #fff;
+    border-radius: 20px; cursor: pointer; font-family: inherit; transition: 0.3s;
+}
+.time-slot-btn:hover { background: var(--bg-light); }
+.time-slot-btn.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* Кнопка записи в карточке врача */
+.btn-book { margin-top: 15px; width: 100%; padding: 10px; font-size: 0.9rem; }
