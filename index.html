@@ -17,9 +17,13 @@
     <!-- ШАПКА САЙТА -->
     <header class="header">
         <div class="container header__container">
-            <!-- Новый логотип с феей -->
+            <!-- Новый векторный логотип -->
             <a href="#" class="logo">
-                <span class="logo__icon">🧚‍♀️</span> 
+                <svg class="logo__svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21C12 21 16.5 19 16.5 12C16.5 7 14 4 12 4C10 4 7.5 7 7.5 12C7.5 19 12 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M9 9C9 9 10 8 12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M18 5L19 6M19 5L18 6" stroke="#ffc107" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="logo__text">Зубная Фея</span>
             </a>
             
@@ -44,7 +48,7 @@
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ БАННЕР (HERO) -->
+    <!-- ГЛАВНЫЙ БАННЕР -->
     <section class="hero">
         <div class="container hero__container">
             <div class="hero__content">
@@ -59,7 +63,7 @@
         </div>
     </section>
 
-    <!-- БЛОК ПРЕИМУЩЕСТВ -->
+    <!-- ПРЕИМУЩЕСТВА -->
     <section class="features">
         <div class="container features__grid">
             <div class="feature-card">
@@ -80,49 +84,63 @@
         </div>
     </section>
 
-    <!-- БЛОК УСЛУГ (С ИКОНКАМИ) -->
+    <!-- УСЛУГИ -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
             <div class="services__grid">
                 <div class="service-card">
-                    <div class="service-icon">🦷</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21C12 21 16.5 19 16.5 12C16.5 7 14 4 12 4C10 4 7.5 7 7.5 12C7.5 19 12 21 12 21Z"/></svg>
+                    </div>
                     <h3>Терапия</h3>
                     <p>Лечение кариеса, пульпита, реставрация зубов.</p>
                     <span class="price">от 3 500 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🧸</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 0-5 5v2a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"/><path d="M8 14h8a4 4 0 0 1 4 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a4 4 0 0 1 4-4z"/></svg>
+                    </div>
                     <h3>Детская стоматология</h3>
                     <p>Лечение молочных зубов, серебрение, герметизация.</p>
                     <span class="price">от 2 000 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🩺</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4l5.5 5.5-9.5 9.5-5.5-5.5L14.5 4z"/><path d="M16 2l6 6"/></svg>
+                    </div>
                     <h3>Хирургия</h3>
                     <p>Удаление зубов любой сложности, включая зубы мудрости.</p>
                     <span class="price">от 2 500 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔩</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M8 6h8M9 10h6M10 14h4M11 18h2"/></svg>
+                    </div>
                     <h3>Имплантация</h3>
                     <p>Установка имплантов премиум-класса с гарантией.</p>
                     <span class="price">от 35 000 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">😁</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 12a8 8 0 0 1 16 0M8 12v4M16 12v4"/></svg>
+                    </div>
                     <h3>Ортодонтия</h3>
                     <p>Исправление прикуса брекетами и элайнерами.</p>
                     <span class="price">от 150 000 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🩻</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                    </div>
                     <h3>Компьютерная томография</h3>
                     <p>3D-диагностика зубов и челюстей на томографе.</p>
                     <span class="price">от 1 500 ₽</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📸</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 10h8M8 14h8M12 6v12"/></svg>
+                    </div>
                     <h3>Рентгенография</h3>
                     <p>Прицельные снимки и панорамная рентгенография.</p>
                     <span class="price">от 500 ₽</span>
@@ -131,67 +149,72 @@
         </div>
     </section>
 
-    <!-- БЛОК ВРАЧЕЙ (ВСЕ 7 ЧЕЛОВЕК) -->
+    <!-- ВРАЧИ -->
     <section class="doctors" id="doctors">
         <div class="container">
             <h2 class="section-title">Наши врачи</h2>
             <div class="doctors__grid">
-                <!-- 3 Терапевта -->
+                <!-- Врач 1 -->
                 <div class="doctor-card">
                     <img src="img/doctor-1.jpg" alt="Анна Смирнова">
                     <h3>Анна Смирнова</h3>
                     <p>Главный врач. Стоматолог-терапевт. Стаж 15 лет.</p>
                     <a href="docs/diplom-smirnova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Анне Смирновой">Записаться</button>
                 </div>
+                <!-- Врач 2 -->
                 <div class="doctor-card">
                     <img src="img/doctor-2.jpg" alt="Ольга Соколова">
                     <h3>Ольга Соколова</h3>
                     <p>Стоматолог-терапевт. Стаж 10 лет.</p>
                     <a href="docs/diplom-sokolova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Ольге Соколовой">Записаться</button>
                 </div>
+                <!-- Врач 3 -->
                 <div class="doctor-card">
                     <img src="img/doctor-3.jpg" alt="Дмитрий Орлов">
                     <h3>Дмитрий Орлов</h3>
                     <p>Стоматолог-терапевт. Стаж 7 лет.</p>
                     <a href="docs/diplom-orlov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Дмитрию Орлову">Записаться</button>
                 </div>
-                
-                <!-- Детский стоматолог -->
+                <!-- Врач 4 -->
                 <div class="doctor-card">
                     <img src="img/doctor-4.jpg" alt="Елена Козлова">
                     <h3>Елена Козлова</h3>
                     <p>Детский стоматолог. Стаж 8 лет.</p>
                     <a href="docs/diplom-kozlova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Елене Козловой">Записаться</button>
                 </div>
-
-                <!-- Хирург-имплантолог -->
+                <!-- Врач 5 -->
                 <div class="doctor-card">
                     <img src="img/doctor-5.jpg" alt="Иван Петров">
                     <h3>Иван Петров</h3>
                     <p>Хирург-имплантолог. Стаж 12 лет.</p>
                     <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Ивану Петрову">Записаться</button>
                 </div>
-
-                <!-- Ортодонт -->
+                <!-- Врач 6 -->
                 <div class="doctor-card">
                     <img src="img/doctor-6.jpg" alt="Мария Лебедева">
                     <h3>Мария Лебедева</h3>
                     <p>Врач-ортодонт. Стаж 9 лет.</p>
                     <a href="docs/diplom-lebedeva.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Марии Лебедевой">Записаться</button>
                 </div>
-                
-                <!-- Заведующий (дополнительно) -->
+                <!-- Врач 7 -->
                 <div class="doctor-card">
                     <img src="img/doctor-7.jpg" alt="Сергей Николаев">
                     <h3>Сергей Николаев</h3>
                     <p>Стоматолог-ортопед. Стаж 14 лет.</p>
                     <a href="docs/diplom-nikolaev.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                    <button class="btn btn--primary btn-book" data-doctor="Сергею Николаеву">Записаться</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК СТАТЕЙ (БЛОГ) -->
+    <!-- СТАТЬИ -->
     <section class="blog" id="blog">
         <div class="container">
             <h2 class="section-title">Полезные статьи</h2>
@@ -224,7 +247,7 @@
         </div>
     </section>
 
-    <!-- БЛОК FAQ (ВОПРОС-ОТВЕТ) -->
+    <!-- FAQ (ВОПРОС-ОТВЕТ) -->
     <section class="faq" id="faq">
         <div class="container">
             <h2 class="section-title">Частые вопросы</h2>
@@ -245,7 +268,7 @@
         </div>
     </section>
 
-    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ И ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ) -->
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
     <footer class="footer" id="contacts">
         <div class="container footer__container">
             <div class="footer__info">
@@ -253,11 +276,15 @@
                 <p>г. Санкт-Петербург, ул. Пушкина, д. 10</p>
                 <p>Режим работы: Пн-Вс с 09:00 до 21:00</p>
                 <p>Телефон: <a href="tel:+78120000000">+7 (812) 000-00-00</a></p>
+                
+                <div class="footer__socials">
+                    <a href="mailto:info@zubnaya-feya.ru">✉️ info@zubnaya-feya.ru</a>
+                    <a href="https://vk.com/zubnaya_feya_spb" target="_blank">🌐 Мы во ВКонтакте</a>
+                </div>
             </div>
             <div class="footer__bottom">
                 <p>&copy; 2026 Стоматология «Зубная Фея». Все права защищены.</p>
                 <div class="footer__links">
-                    <!-- Ссылки на юридические документы -->
                     <a href="privacy.html">Политика конфиденциальности</a>
                     <a href="offer.html">Публичная оферта</a>
                 </div>
@@ -265,21 +292,36 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ -->
+    <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ С КАЛЕНДАРЕМ -->
     <div class="modal" id="modal">
         <div class="modal__content">
             <span class="modal__close" id="closeModal">&times;</span>
-            <h2 class="modal__title">Запись на прием</h2>
-            <p class="modal__text">Оставьте свои данные, и наш администратор свяжется с вами в течение 15 минут.</p>
+            <h2 class="modal__title" id="modalTitle">Запись на прием</h2>
+            <p class="modal__text">Выберите удобную дату и время для визита.</p>
             <form class="form" id="appointmentForm">
-                <input type="text" placeholder="Ваше имя" required class="form__input">
-                <input type="tel" placeholder="Ваш телефон" required class="form__input">
-                <button type="submit" class="btn btn--primary">Отправить заявку</button>
+                <input type="text" id="patientName" placeholder="Ваше имя" required class="form__input">
+                <input type="tel" id="patientPhone" placeholder="Ваш телефон" required class="form__input">
+                
+                <!-- Выбор даты -->
+                <label for="bookingDate" style="font-size: 0.9rem; font-weight: 500;">Выберите дату:</label>
+                <input type="date" id="bookingDate" required class="form__input">
+                
+                <!-- Выбор времени -->
+                <label style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите время:</label>
+                <div class="time-slots" id="timeSlots">
+                    <!-- Сюда JS вставит кнопки со временем -->
+                </div>
+                
+                <!-- Скрытое поле для передачи выбранного времени -->
+                <input type="hidden" id="selectedTime" required>
+
+                <button type="submit" class="btn btn--primary" style="margin-top: 20px;">Отправить заявку</button>
                 <p class="form__policy">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
             </form>
         </div>
     </div>
 
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ -->
     <script src="js/script.js"></script>
 </body>
 </html>
