@@ -672,3 +672,40 @@ body {
     margin-bottom: 20px;
     display: block;
 }
+/* =========================================
+   СТИЛИ ДЛЯ ВЫБОРА ВРЕМЕНИ ЗАПИСИ
+   ========================================= */
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Расстояние между кнопками */
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.time-slot-btn {
+    padding: 10px 16px;
+    border: 2px solid #e0e0e0;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s ease;
+}
+
+.time-slot-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--bg-light);
+}
+
+/* Класс, который добавляется при клике (выбранное время) */
+.time-slot-btn.selected {
+    background-color: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(0, 191, 165, 0.3);
+}
