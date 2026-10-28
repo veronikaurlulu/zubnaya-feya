@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Стоматологическая клиника Зубная Фея в Санкт-Петербурге. Безболезненное лечение зубов для взрослых и детей. Онлайн-запись на прием.">
+    <meta name="keywords" content="стоматология, стоматолог спб, лечение зубов, детский стоматолог, имплантация, зубная фея">
+    <title>Стоматология «Зубная Фея» | Лечение без страха</title>
+    
+    <!-- Подключение шрифтов Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ШАПКА САЙТА -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="#" class="logo">
+                <span class="logo__icon">🦷</span> Зубная Фея
+            </a>
+            
+            <nav class="nav" id="navMenu">
+                <ul class="nav__list">
+                    <li><a href="#services" class="nav__link">Услуги</a></li>
+                    <li><a href="#doctors" class="nav__link">Врачи</a></li>
+                    <li><a href="#contacts" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__contacts">
+                <a href="tel:+78120000000" class="phone">+7 (812) 000-00-00</a>
+                <button class="btn btn--primary open-modal">Записаться</button>
+            </div>
+            
+            <!-- Кнопка мобильного меню (бургер) -->
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ БАННЕР (HERO) -->
+    <section class="hero">
+        <div class="container hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">Лечение зубов <span class="accent">без страха</span> и боли</h1>
+                <p class="hero__subtitle">Семейная стоматология «Зубная Фея». Заботимся о здоровье детей и взрослых в Санкт-Петербурге с 2015 года.</p>
+                <button class="btn btn--primary btn--large open-modal">Записаться на прием</button>
+                <p class="hero__notice">* Первичная консультация — бесплатно</p>
+            </div>
+            <div class="hero__image">
+                <!-- Локальная картинка для баннера -->
+                <img src="img/hero-bg.jpg" alt="Улыбка пациента">
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК ПРЕИМУЩЕСТВ -->
+    <section class="features">
+        <div class="container features__grid">
+            <div class="feature-card">
+                <div class="feature-card__icon">😷</div>
+                <h3>Безболезненно</h3>
+                <p>Современная анестезия и седация. Лечим даже самых тревожных пациентов.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🧸</div>
+                <h3>Детский подход</h3>
+                <p>Игровая зона, мультики и врачи, умеющие найти подход к каждому ребенку.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card__icon">🔬</div>
+                <h3>Технологии</h3>
+                <p>3D-томограф, микроскопы и цифровые слепки для точной диагностики.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК УСЛУГ -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services__grid">
+                <div class="service-card">
+                    <h3>Терапия</h3>
+                    <p>Лечение кариеса, пульпита, реставрация зубов.</p>
+                    <span class="price">от 3 500 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Детская стоматология</h3>
+                    <p>Лечение молочных зубов, серебрение, герметизация.</p>
+                    <span class="price">от 2 000 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Хирургия</h3>
+                    <p>Удаление зубов любой сложности, включая зубы мудрости.</p>
+                    <span class="price">от 2 500 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Имплантация</h3>
+                    <p>Установка имплантов премиум-класса с гарантией.</p>
+                    <span class="price">от 35 000 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Ортодонтия</h3>
+                    <p>Исправление прикуса брекетами и элайнерами.</p>
+                    <span class="price">от 150 000 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Компьютерная томография</h3>
+                    <p>3D-диагностика зубов и челюстей на томографе.</p>
+                    <span class="price">от 1 500 ₽</span>
+                </div>
+                <div class="service-card">
+                    <h3>Рентгенография</h3>
+                    <p>Прицельные снимки и панорамная рентгенография.</p>
+                    <span class="price">от 500 ₽</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК ВРАЧЕЙ -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <h2 class="section-title">Наши врачи</h2>
+            <div class="doctors__grid">
+                
+                <div class="doctor-card">
+                    <!-- Локальная картинка врача 1 -->
+                    <img src="img/doctor-1.jpg" alt="Врач Анна Смирнова">
+                    <h3>Анна Смирнова</h3>
+                    <p>Главный врач. Стоматолог-терапевт. Стаж 15 лет.</p>
+                    <!-- Ссылка на диплом (пока ведет на заглушку #) -->
+                    <a href="docs/diplom-smirnova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+
+                <div class="doctor-card">
+                    <!-- Локальная картинка врача 2 -->
+                    <img src="img/doctor-2.jpg" alt="Врач Иван Петров">
+                    <h3>Иван Петров</h3>
+                    <p>Хирург-имплантолог. Стаж 12 лет.</p>
+                    <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+
+                <div class="doctor-card">
+                    <!-- Локальная картинка врача 3 -->
+                    <img src="img/doctor-3.jpg" alt="Врач Елена Козлова">
+                    <h3>Елена Козлова</h3>
+                    <p>Детский стоматолог. Стаж 8 лет.</p>
+                    <a href="docs/diplom-kozlova.pdf" class="doc-link" target="_blank">📄 Диплом и сертификаты</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
+    <footer class="footer" id="contacts">
+        <div class="container footer__container">
+            <div class="footer__info">
+                <h2>Зубная Фея</h2>
+                <p>г. Санкт-Петербург, ул. Пушкина, д. 10</p>
+                <p>Режим работы: Пн-Вс с 09:00 до 21:00</p>
+                <p>Телефон: <a href="tel:+78120000000">+7 (812) 000-00-00</a></p>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Стоматология «Зубная Фея». Все права защищены.</p>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ -->
+    <div class="modal" id="modal">
+        <div class="modal__content">
+            <span class="modal__close" id="closeModal">&times;</span>
+            <h2 class="modal__title">Запись на прием</h2>
+            <p class="modal__text">Оставьте свои данные, и наш администратор свяжется с вами в течение 15 минут.</p>
+            <form class="form" id="appointmentForm">
+                <input type="text" placeholder="Ваше имя" required class="form__input">
+                <input type="tel" placeholder="Ваш телефон" required class="form__input">
+                <button type="submit" class="btn btn--primary">Отправить заявку</button>
+                <p class="form__policy">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ -->
+    <script src="js/script.js"></script>
+</body>
+</html>
