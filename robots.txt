@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /docs/
+
+Sitemap: https://veronikaurlulu.github.io/zubnaya-feya/sitemap.xml
