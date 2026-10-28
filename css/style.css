@@ -170,6 +170,34 @@ body {
     transition: 0.3s;
 }
 
+/* Делаем так, чтобы элементы шапки не переносились на новую строку */
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Запрещаем перенос */
+    gap: 15px;
+}
+
+/* Уменьшаем шрифт меню, чтобы оно влезло */
+.nav__link {
+    font-size: 0.95rem; /* Чуть меньше шрифт */
+    white-space: nowrap; /* Запрещаем перенос слов (Прайс-лист в одну строку) */
+}
+
+/* Телефон тоже не должен съезжать */
+.phone {
+    font-size: 1rem;
+    white-space: nowrap; /* Телефон всегда в одну строку */
+    font-weight: 600;
+}
+
+/* Кнопка "Записаться" не должна сжиматься */
+.header__contacts .btn {
+    white-space: nowrap;
+    padding: 10px 20px;
+}
+
 /* =========================================
    БАННЕР (HERO)
    ========================================= */
