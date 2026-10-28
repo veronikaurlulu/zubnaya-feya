@@ -645,3 +645,30 @@ body {
 
 /* Кнопка записи в карточке врача */
 .btn-book { margin-top: 15px; width: 100%; padding: 10px; font-size: 0.9rem; }
+/* Стили для логотипа-картинки */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+.logo__img {
+    width: 45px; /* Размер логотипа */
+    height: 45px;
+    object-fit: contain; /* Картинка не будет искажаться */
+}
+.logo__text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap; /* Текст не будет переноситься на новую строку */
+}
+
+/* Стили для иконок в услугах */
+.service-icon-img {
+    width: 64px; /* Аккуратный размер иконки */
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    display: block;
+}
