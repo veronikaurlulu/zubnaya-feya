@@ -187,6 +187,9 @@ body {
 .hero {
     background: linear-gradient(135deg, var(--bg-light) 0%, #e0f2f1 100%);
     padding: 80px 0;
+    min-height: calc(100vh - 80px); /* Занимает 100% высоты экрана минус высота шапки (80px) */
+    display: flex;
+    align-items: center; /* Центрируем текст и картинку по вертикали */
 }
 
 .hero__container {
@@ -218,9 +221,9 @@ body {
 
 /* Задаем ширину самому контейнеру с картинкой */
 .hero__image {
-    flex: 0 0 48%; /* Картинка будет занимать 48% ширины экрана */
+    flex: 0 0 55%; /* Увеличили с 48% до 55% (картинка станет крупнее) */
     display: flex;
-    justify-content: flex-end; /* Прижимаем к правому краю */
+    justify-content: flex-end; 
 }
 
 /* Заставляем картинку заполнить весь этот контейнер */
