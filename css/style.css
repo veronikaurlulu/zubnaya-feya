@@ -17,7 +17,16 @@
     --text-light: #666;
     --bg-light: #f4f9f9;
 }
-
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 body {
     color: var(--text);
     line-height: 1.6;
