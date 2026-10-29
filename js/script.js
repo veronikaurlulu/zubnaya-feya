@@ -5,14 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const openBtns = document.querySelectorAll('.open-modal');
     const closeBtn = document.getElementById('closeModal');
     const modalTitle = document.getElementById('modalTitle');
+    const form = document.getElementById('appointmentForm');
+
+    // Функция открытия модалки
+    const openModal = (title) => {
+        modalTitle.innerText = title;
+        modal.classList.add('active');
+        generateTimeSlots();
+    };
 
     // Открытие через шапку/баннер
     openBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modalTitle.innerText = 'Запись на прием';
-            modal.classList.add('active');
-            generateTimeSlots(); // Генерируем время
-        });
+        btn.addEventListener('click', () => openModal('Запись на прием'));
     });
 
     // Открытие через карточку врача
@@ -21,14 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const doctorName = btn.getAttribute('data-doctor');
-            modalTitle.innerText = `Запись к ${doctorName}`;
-            modal.classList.add('active');
-            generateTimeSlots();
+            openModal(`Запись к ${doctorName}`);
         });
     });
 
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+    // Закрытие модалки
+    const closeModal = () => {
+        modal.classList.remove('active');
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Закрытие по клику вне окна
+    window.addEventListener('click', (e) => { 
+        if (e.target === modal) closeModal(); 
+    });
+
+    // ДОСТУПНОСТЬ: Закрытие по нажатию клавиши Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
 
     // --- 2. ГЕНЕРАЦИЯ ВРЕМЕНИ ---
     const timeSlotsContainer = document.getElementById('timeSlots');
@@ -39,12 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split('T')[0];
     if (bookingDateInput) bookingDateInput.setAttribute('min', today);
 
-        function generateTimeSlots() {
+    function generateTimeSlots() {
         if(!timeSlotsContainer) return;
         timeSlotsContainer.innerHTML = '';
         selectedTimeInput.value = '';
         
-        // Генерируем время с 9:00 до 20:00 с шагом 30 минут
         let hour = 9;
         let minute = 0;
 
@@ -52,19 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const timeString = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
             
             const btn = document.createElement('button');
-            btn.type = 'button'; // ВАЖНО: чтобы кнопка не отправляла форму
+            btn.type = 'button'; // Чтобы кнопка не отправляла форму
             btn.className = 'time-slot-btn';
             btn.innerText = timeString;
+            // ДОСТУПНОСТЬ: Добавляем подпись для скринридеров
+            btn.setAttribute('aria-label', `Выбрать время ${timeString}`);
             
             btn.addEventListener('click', () => {
-                // Убираем класс 'selected' у всех кнопок
                 const allBtns = document.querySelectorAll('.time-slot-btn');
-                allBtns.forEach(b => b.classList.remove('selected'));
+                allBtns.forEach(b => {
+                    b.classList.remove('selected');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 
-                // Добавляем класс 'selected' текущей кнопке
                 btn.classList.add('selected');
-                
-                // Записываем время в скрытое поле
+                btn.setAttribute('aria-pressed', 'true'); // ДОСТУПНОСТЬ
                 selectedTimeInput.value = timeString;
             });
             
@@ -75,54 +95,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 3. ОТПРАВКА ФОРМЫ ---
-    const form = document.getElementById('appointmentForm');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        if (!selectedTimeInput.value) {
-            alert('Пожалуйста, выберите время приема.');
-            return;
-        }
+    // --- 3. ОТПРАВКА ФОРМЫ И ЦЕЛИ МЕТРИКИ ---
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!selectedTimeInput.value) {
+                alert('Пожалуйста, выберите время приема.');
+                return;
+            }
 
-        const date = bookingDateInput.value;
-        const time = selectedTimeInput.value;
-        const doctor = modalTitle.innerText;
+            const date = bookingDateInput.value;
+            const time = selectedTimeInput.value;
+            const doctor = modalTitle.innerText;
 
-        alert(`Спасибо! Вы записаны: ${doctor}.\nДата: ${date}\nВремя: ${time}.\nАдминистратор перезвонит для подтверждения.`);
-        
-        form.reset();
-        document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
-        modal.classList.remove('active');
-    });
+            // Цель Яндекс.Метрики на отправку формы
+            if (typeof ym !== 'undefined') {
+                ym(113852204, 'reachGoal', 'form_submit');
+            }
+
+            alert(`Спасибо! Вы записаны: ${doctor}.\nДата: ${date}\nВремя: ${time}.\nАдминистратор перезвонит для подтверждения.`);
+            
+            // Очищаем форму и скрытое поле
+            form.reset();
+            selectedTimeInput.value = ''; 
+            document.querySelectorAll('.time-slot-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            
+            closeModal();
+        });
+    }
 
     // --- 4. МОБИЛЬНОЕ МЕНЮ ---
     const burger = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
-    if(burger) {
-        burger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    
+    if(burger && navMenu) {
+        burger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // ДОСТУПНОСТЬ: Переключаем состояние меню (открыто/закрыто)
+            const isExpanded = navMenu.classList.contains('active');
+            burger.setAttribute('aria-expanded', isExpanded);
+        });
     }
+
     document.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', () => navMenu.classList.remove('active'));
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            if(burger) burger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // --- 5. ОТСЛЕЖИВАНИЕ КЛИКОВ ПО ТЕЛЕФОНУ ---
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (typeof ym !== 'undefined') {
+                ym(113852204, 'reachGoal', 'phone_click');
+            }
+        });
     });
 });
-// === НАСТРОЙКА ЦЕЛЕЙ ЯНДЕКС.МЕТРИКИ ===
-
-// 1. Отслеживание кликов по номеру телефона
-document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-    link.addEventListener('click', () => {
-        if (typeof ym !== 'undefined') {
-            ym(113852204, 'reachGoal', 'phone_click');
-        }
-    });
-});
-
-// 2. Отслеживание отправки формы записи
-const appointmentForm = document.getElementById('appointmentForm');
-if (appointmentForm) {
-    appointmentForm.addEventListener('submit', () => {
-        if (typeof ym !== 'undefined') {
-            ym(113852204, 'reachGoal', 'form_submit');
-        }
-    });
-}
