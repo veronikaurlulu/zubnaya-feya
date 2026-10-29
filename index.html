@@ -8,16 +8,16 @@
     <meta name="keywords" content="стоматология, стоматолог спб, лечение зубов, детский стоматолог, имплантация, зубная фея">
     <title>Стоматология «Зубная Фея» | Лечение без страха</title>
     
-    <!-- Оптимизация шрифтов: preconnect и display=swap для быстрой отрисовки -->
+    <!-- Оптимизация шрифтов: preconnect и preload для асинхронной загрузки -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Предзагрузка CSS шрифтов -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
-<!-- Асинхронное применение стилей -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
-</noscript>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
+    </noscript>
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -25,8 +25,8 @@
     <header class="header">
         <div class="container header__container">
             <a href="#" class="logo">
-                <!-- Добавлены width и height для предотвращения скачков верстки -->
-                <img src="img/logo.png" alt="Логотип Зубная Фея" class="logo__img">
+                <!-- Логотип остался в png -->
+                <img src="img/logo.png" alt="Логотип Зубная Фея" class="logo__img" width="80" height="80">
                 <span class="logo__text">Зубная Фея</span>
             </a>
             
@@ -46,14 +46,13 @@
                 <button class="btn btn--primary open-modal">Записаться</button>
             </div>
             
-            <!-- Добавлен aria-label для доступности -->
-            <button class="burger" id="burger" aria-label="Открыть меню">
+            <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <!-- ОБЕРНУЛИ ВЕСЬ ОСНОВНОЙ КОНТЕНТ В <main> ДЛЯ ДОСТУПНОСТИ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main>
         <!-- ГЛАВНЫЙ БАННЕР -->
         <section class="hero">
@@ -65,9 +64,8 @@
                     <p class="hero__notice">* Первичная консультация — бесплатно</p>
                 </div>
                 <div class="hero__image">
-                    <!-- LCP элемент: добавлен fetchpriority="high", width, height. -->
-                    <!-- ВАЖНО: Замени значения 600 и 500 на реальные пропорции твоей картинки hero-bg.jpg -->
-                   <img src="img/hero-bg.jpg" alt="Улыбка пациента" width="1448" height="1086" fetchpriority="high" decoding="async">
+                    <!-- Главная картинка в webp, размер 800x600 для LCP -->
+                    <img src="img/hero-bg.webp" alt="Улыбка пациента" width="800" height="600" fetchpriority="high" decoding="async">
                 </div>
             </div>
         </section>
@@ -75,11 +73,9 @@
         <!-- ПРЕИМУЩЕСТВА -->
         <section class="features">
             <div class="container features__grid">
-                <!-- Скрытый заголовок для правильной иерархии (H1 -> H2 -> H3) -->
-                <h2 class="visually-hidden" style="display: none;">Наши преимущества</h2>
+                <h2 class="visually-hidden">Наши преимущества</h2>
                 
                 <div class="feature-card">
-                    <!-- Убраны inline-стили, добавлены width и height, loading="lazy" -->
                     <img src="img/icon-painless.png" alt="Безболезненно" width="150" height="150" loading="lazy" decoding="async">
                     <h3>Безболезненно</h3>
                     <p>Современная анестезия и седация. Лечим даже самых тревожных пациентов.</p>
@@ -164,8 +160,9 @@
                         <img src="img/doctor-1.jpg" alt="Анна Смирнова" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Анна Смирнова</h3>
                         <p>Главный врач. Стоматолог-терапевт. Стаж 15 лет.</p>
-                        <!-- Добавлен уникальный aria-label для ссылок -->
-                        <a href="docs/diplom-smirnova.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Анна Смирнова">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-smirnova.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Анны Смирновой</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Анне Смирновой">Записаться</button>
                     </div>
                     <!-- Врач 2 -->
@@ -173,7 +170,9 @@
                         <img src="img/doctor-2.jpg" alt="Ольга Соколова" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Ольга Соколова</h3>
                         <p>Стоматолог-терапевт. Стаж 10 лет.</p>
-                        <a href="docs/diplom-sokolova.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Ольга Соколова">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-sokolova.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Ольги Соколовой</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Ольге Соколовой">Записаться</button>
                     </div>
                     <!-- Врач 3 -->
@@ -181,7 +180,9 @@
                         <img src="img/doctor-3.jpg" alt="Дмитрий Орлов" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Дмитрий Орлов</h3>
                         <p>Стоматолог-терапевт. Стаж 7 лет.</p>
-                        <a href="docs/diplom-orlov.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Дмитрий Орлов">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-orlov.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Дмитрия Орлова</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Дмитрию Орлову">Записаться</button>
                     </div>
                     <!-- Врач 4 -->
@@ -189,7 +190,9 @@
                         <img src="img/doctor-4.jpg" alt="Елена Козлова" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Елена Козлова</h3>
                         <p>Детский стоматолог. Стаж 8 лет.</p>
-                        <a href="docs/diplom-kozlova.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Елена Козлова">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-kozlova.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Елены Козловой</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Елене Козловой">Записаться</button>
                     </div>
                     <!-- Врач 5 -->
@@ -197,7 +200,9 @@
                         <img src="img/doctor-5.jpg" alt="Иван Петров" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Иван Петров</h3>
                         <p>Хирург-имплантолог. Стаж 12 лет.</p>
-                        <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Иван Петров">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-petrov.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Ивана Петрова</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Ивану Петрову">Записаться</button>
                     </div>
                     <!-- Врач 6 -->
@@ -205,7 +210,9 @@
                         <img src="img/doctor-6.jpg" alt="Мария Лебедева" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Мария Лебедева</h3>
                         <p>Врач-ортодонт. Стаж 9 лет.</p>
-                        <a href="docs/diplom-lebedeva.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Мария Лебедева">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-lebedeva.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Марии Лебедевой</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Марии Лебедевой">Записаться</button>
                     </div>
                     <!-- Врач 7 -->
@@ -213,7 +220,9 @@
                         <img src="img/doctor-7.jpg" alt="Сергей Николаев" width="150" height="150" loading="lazy" decoding="async">
                         <h3>Сергей Николаев</h3>
                         <p>Стоматолог-ортопед. Стаж 14 лет.</p>
-                        <a href="docs/diplom-nikolaev.pdf" class="doc-link" target="_blank" aria-label="Диплом и сертификаты: Сергей Николаев">📄 Диплом и сертификаты</a>
+                        <a href="docs/diplom-nikolaev.pdf" class="doc-link" target="_blank">
+                            📄 Диплом и сертификаты <span class="visually-hidden">Сергея Николаева</span>
+                        </a>
                         <button class="btn btn--primary btn-book" data-doctor="Сергею Николаеву">Записаться</button>
                     </div>
                 </div>
@@ -231,7 +240,9 @@
                         <div class="blog-card__content">
                             <h3>Как приучить ребенка чистить зубы?</h3>
                             <p>Простые советы от нашего детского стоматолога, которые превратят чистку зубов в игру.</p>
-                            <a href="article-brush-teeth.html" class="read-more">Читать далее →</a>
+                            <a href="article-brush-teeth.html" class="read-more">
+                                Читать далее → <span class="visually-hidden">о чистке зубов для детей</span>
+                            </a>
                         </div>
                     </article>
                     
@@ -241,7 +252,9 @@
                         <div class="blog-card__content">
                             <h3>Больно ли ставить импланты?</h3>
                             <p>Развенчиваем мифы о самой популярной процедуре восстановления зубов.</p>
-                            <a href="article-implants.html" class="read-more">Читать далее →</a>
+                            <a href="article-implants.html" class="read-more">
+                                Читать далее → <span class="visually-hidden">об имплантации зубов</span>
+                            </a>
                         </div>
                     </article>
                     
@@ -251,7 +264,9 @@
                         <div class="blog-card__content">
                             <h3>Отбеливание: вред или польза?</h3>
                             <p>Вся правда о современных безопасных методах отбеливания эмали.</p>
-                            <a href="article-whitening.html" class="read-more">Читать далее →</a>
+                            <a href="article-whitening.html" class="read-more">
+                                Читать далее → <span class="visually-hidden">об отбеливании зубов</span>
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -307,12 +322,10 @@
     <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ С КАЛЕНДАРЕМ -->
     <div class="modal" id="modal">
         <div class="modal__content">
-            <!-- Изменено со span на button для доступности, добавлен aria-label -->
             <button class="modal__close" id="closeModal" aria-label="Закрыть окно">&times;</button>
             <h2 class="modal__title" id="modalTitle">Запись на прием</h2>
             <p class="modal__text">Выберите удобную дату и время для визита.</p>
             <form class="form" id="appointmentForm">
-                <!-- Добавлены aria-label для полей ввода, так как нет визуальных label -->
                 <input type="text" id="patientName" placeholder="Ваше имя" required class="form__input" aria-label="Ваше имя">
                 <input type="tel" id="patientPhone" placeholder="Ваш телефон" required class="form__input" aria-label="Ваш телефон">
                 
@@ -320,10 +333,8 @@
                 <input type="date" id="bookingDate" required class="form__input">
                 
                 <label style="font-size: 0.9rem; font-weight: 500; margin-top: 10px;">Выберите время:</label>
-                <!-- Контейнер для кнопок -->
                 <div class="time-slots" id="timeSlots"></div>
                 
-                <!-- Скрытое поле для записи выбранного времени -->
                 <input type="hidden" id="selectedTime" required>
 
                 <button type="submit" class="btn btn--primary" style="margin-top: 20px;">Отправить заявку</button>
